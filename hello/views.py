@@ -1,4 +1,6 @@
-from django import http
+from django.http import HttpResponse
+from django.views.generic import View
 
-def home(request):
-    return http.HttpResponse('Hello World!')
+class Home(View):
+    def get(self, request):
+        return HttpResponse('Hello World!')
