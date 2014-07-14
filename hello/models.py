@@ -4,7 +4,7 @@ from google.appengine.ext import ndb
 
 class Task(ndb.Model):
     name = ndb.StringProperty()
-    done = ndb.BooleanPropterty()
+    done = ndb.BooleanProperty()
 
 class TaskList(ndb.Model):
     tasks = ndb.StructuredProperty(Task, repeated=True)

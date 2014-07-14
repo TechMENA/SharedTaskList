@@ -3,13 +3,14 @@ from django.views.generic import View
 
 from google.appengine.api import users
 
+from .models import TaskList
 
-class Home(View):
+class HomeView(View):
     def get(self, request):
         return HttpResponse('Hello World! Please try /login for some magic')
 
 
-def login(request):
+def LoginView(request):
     user = users.get_current_user()
 
     if user:
@@ -22,7 +23,7 @@ def login(request):
     return HttpResponse('<html><body>%s</body></html>' % greeting)
 
 
-class TaskList(View):
+class TaskListView(View):
     def get(self, request):
         return HttpResponse('Hello TaskList!')
 
