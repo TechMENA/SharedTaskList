@@ -24,7 +24,8 @@ class LoginView(View):
 
 class TaskListView(View):
     def get(self, request):
-        return HttpResponse('Hello TaskList!')
+        tasks = TaskList().query()
+        return HttpResponse('You have %d tasklist'%(tasks.count()))
 
     def post(self, request):
         return HttpResponse('post TaskList!')
