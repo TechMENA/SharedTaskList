@@ -1,6 +1,8 @@
 from django.http import HttpResponse
 from django.views.generic import View
 
+from google.appengine.api import users
+
 
 class Home(View):
     def get(self, request):
@@ -8,7 +10,6 @@ class Home(View):
 
 
 def login(request):
-    from google.appengine.api import users
     user = users.get_current_user()
 
     if user:
