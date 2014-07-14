@@ -1,7 +1,9 @@
-from django import http
+from django.http import HttpResponse
+from django.views.generic import View
 
-def home(request):
-    return http.HttpResponse('Hello World! Please try /login for some magic')
+class Home(View):
+    def get(self, request):
+        return HttpResponse('Hello World! Please try /login for some magic')
 
 def login(request):
 	from google.appengine.api import users
@@ -13,4 +15,4 @@ def login(request):
 	else:
 		greeting = ('<a href="%s">Sign in or register</a>.' % users.create_login_url('/'))
 	
-	return http.HttpResponse('<html><body>%s</body></html>' % greeting)
+	return HttpResponse('<html><body>%s</body></html>' % greeting)
