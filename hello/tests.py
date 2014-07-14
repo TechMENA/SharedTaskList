@@ -5,6 +5,7 @@ from django.test import TestCase
 
 from . import views
 
+
 class HomeViewTest(TestCase):
     def test_home(self):
         requst = http.HttpRequest()
